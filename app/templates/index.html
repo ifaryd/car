@@ -354,8 +354,7 @@ Accueil
                <img class="img-fluid recent" src="{{voiture.photo_face.url}}" alt="">
                <div class="car-overlay-banner">
                 <ul> 
-                  <li><a href="{% url 'detail' voiture.id %}"><i class="fa fa-link"></i></a></li>
-                  <li><a href="#"><i class="fa fa-dashboard"></i></a></li>
+                  <li><a title="voir" href="{% url 'detail' voiture.id %}"><i class="fa fa-eye"></i></a></li>
                  </ul>
                </div>
              </div>
