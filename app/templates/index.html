@@ -245,11 +245,9 @@ Accueil
             <div class="selected-box">
               <select class="selectpicker">
               <option>Marque </option>
-              <option>BMW</option>
-              <option>Honda </option>
-              <option>Hyundai </option>
-              <option>Nissan </option>
-              <option>Mercedes Benz </option>
+              {% for marque in marque %}
+                <option value="{{ marque }}">{{ marque }}</option>
+              {% endfor %}
              </select>
             </div>
           </div>
@@ -258,12 +256,9 @@ Accueil
             <div class="selected-box">
              <select class="selectpicker">
               <option>Modèle</option>
-              <option>3-Series</option>
-              <option>Carrera</option>
-              <option>GT-R</option>
-              <option>Cayenne</option>
-              <option>Mazda6</option>
-              <option>Macan</option>
+              {% for modele in modele %}
+                <option value="{{ modele }}">{{ modele }}</option>
+              {% endfor %}
              </select>
            </div>
           </div>
@@ -272,13 +267,9 @@ Accueil
            <div class="selected-box">
              <select class="selectpicker">
               <option>Année</option>
-              <option>2010</option>
-              <option>2011</option>
-              <option>2012</option>
-              <option>2013</option>
-              <option>2014</option>
-              <option>2015</option>
-              <option>2016</option>
+              {% for annee in annee %}
+                <option value="{{ annee }}">{{ annee }}</option>
+               {% endfor %}
              </select>
             </div>
           </div>
@@ -300,12 +291,9 @@ Accueil
            <div class="selected-box">
              <select class="selectpicker">
               <option>Etat</option>
-              <option>Condition</option>
-              <option>All Conditions</option>
-              <option>Condition</option>
-              <option>Brand New</option>
-              <option>Slightly Used</option>
-              <option>Used</option> 
+              {% for etat in etat %}
+                <option value="{{ etat }}">{{ etat }}</option>
+               {% endfor %}
              </select>
            </div>
           </div>
@@ -349,8 +337,8 @@ Accueil
        <div class="row">
         <div class="col-md-12">
           <div class="section-title">
-             <span>Check out our Latest Car</span>
-             <h2>LATEST CAR </h2>
+             <span>Découvrez nos dernières voitures</span>
+             <h2>VOITURES RÉCENTES </h2>
              <div class="separator"></div>
           </div>
         </div>
@@ -358,22 +346,24 @@ Accueil
       <div class="row">
        <div class="col-md-12">
         <div class="owl-carousel" data-nav-arrow="true" data-nav-dots="true" data-items="4" data-md-items="4" data-sm-items="2" data-xs-items="2" data-space="10">
+        
+        {% for voiture in voiture %}
          <div class="item">
            <div class="car-item price-remove gray-bg text-center">
              <div class="car-image">
-               <img class="img-fluid" src="{% static 'images/car/05.jpg' %}" alt="">
+               <img class="img-fluid recent" src="{{voiture.photo_face.url}}" alt="">
                <div class="car-overlay-banner">
                 <ul> 
-                  <li><a href="#"><i class="fa fa-link"></i></a></li>
+                  <li><a href="{% url 'detail' voiture.id %}"><i class="fa fa-link"></i></a></li>
                   <li><a href="#"><i class="fa fa-dashboard"></i></a></li>
                  </ul>
                </div>
              </div>
              <div class="car-list">
                <ul class="list-inline">
-                 <li><i class="fa fa-registered"></i> 2017</li>
-                 <li><i class="fa fa-cog"></i> Manual </li>
-                 <li><i class="fa fa-dashboard"></i> 6,000 mi</li>
+                 <li><i class="fa fa-registered"></i> {{ voiture.annee }}</li>
+                 <li><i class="fa fa-cog"></i> {{ voiture.transmission }} </li>
+                 <li><i class="fa fa-dashboard"></i> {{ voiture.kilometrage }} km</li>
                </ul>
             </div>
              <div class="car-content">
@@ -384,135 +374,13 @@ Accueil
                 <i class="fa fa-star orange-color"></i>
                 <i class="fa fa-star-o orange-color"></i>
                </div>
-               <a href="#">Acura Rsx</a>
+               <a href="{% url 'detail' voiture.id %}">{{ voiture.marque }} {{ voiture.modele }}</a>
                <div class="separator"></div>
              </div>
            </div>
          </div>
-         <div class="item">
-           <div class="car-item price-remove gray-bg text-center">
-             <div class="car-image">
-               <img class="img-fluid" src="{% static 'images/car/06.jpg' %}" alt="">
-               <div class="car-overlay-banner">
-                <ul> 
-                  <li><a href="#"><i class="fa fa-link"></i></a></li>
-                  <li><a href="#"><i class="fa fa-dashboard"></i></a></li>
-                 </ul>
-               </div>
-             </div>
-             <div class="car-list">
-               <ul class="list-inline">
-                 <li><i class="fa fa-registered"></i> 2017</li>
-                 <li><i class="fa fa-cog"></i> Manual </li>
-                 <li><i class="fa fa-dashboard"></i> 6,000 mi</li>
-               </ul>
-            </div>
-             <div class="car-content">
-              <div class="star">
-               <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star-o orange-color"></i>
-               </div>
-               <a href="#">Lexus GS 450h</a>
-               <div class="separator"></div>
-             </div>
-           </div>
-         </div>
-         <div class="item">
-           <div class="car-item price-remove gray-bg text-center">
-             <div class="car-image">
-               <img class="img-fluid" src="{% static 'images/car/07.jpg' %}" alt="">
-               <div class="car-overlay-banner">
-                <ul> 
-                  <li><a href="#"><i class="fa fa-link"></i></a></li>
-                  <li><a href="#"><i class="fa fa-dashboard"></i></a></li>
-                 </ul>
-               </div>
-             </div>
-             <div class="car-list">
-               <ul class="list-inline">
-                 <li><i class="fa fa-registered"></i> 2017</li>
-                 <li><i class="fa fa-cog"></i> Manual </li>
-                 <li><i class="fa fa-dashboard"></i> 6,000 mi</li>
-               </ul>
-            </div>
-             <div class="car-content">
-              <div class="star">
-               <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star-o orange-color"></i>
-               </div>
-               <a href="#">GTA 5 Lowriders DLC</a>
-               <div class="separator"></div>
-             </div>
-           </div>
-         </div>
-         <div class="item">
-           <div class="car-item price-remove gray-bg text-center">
-             <div class="car-image">
-               <img class="img-fluid" src="{% static 'images/car/01.jpg' %}" alt="">
-               <div class="car-overlay-banner">
-                <ul> 
-                  <li><a href="#"><i class="fa fa-link"></i></a></li>
-                  <li><a href="#"><i class="fa fa-dashboard"></i></a></li>
-                 </ul>
-               </div>
-             </div>
-             <div class="car-list">
-               <ul class="list-inline">
-                 <li><i class="fa fa-registered"></i> 2017</li>
-                 <li><i class="fa fa-cog"></i> Manual </li>
-                 <li><i class="fa fa-dashboard"></i> 6,000 mi</li>
-               </ul>
-            </div>
-             <div class="car-content">
-              <div class="star">
-               <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star-o orange-color"></i>
-               </div>
-               <a href="#">Toyota avalon hybrid </a>
-               <div class="separator"></div>
-             </div>
-           </div>
-         </div>
-         <div class="item">
-           <div class="car-item price-remove gray-bg text-center">
-             <div class="car-image">
-               <img class="img-fluid" src="{% static 'images/car/02.jpg' %}" alt="">
-               <div class="car-overlay-banner">
-                <ul> 
-                  <li><a href="#"><i class="fa fa-link"></i></a></li>
-                  <li><a href="#"><i class="fa fa-dashboard"></i></a></li>
-                 </ul>
-               </div>
-             </div>
-             <div class="car-list">
-               <ul class="list-inline">
-                 <li><i class="fa fa-registered"></i> 2017</li>
-                 <li><i class="fa fa-cog"></i> Manual </li>
-                 <li><i class="fa fa-dashboard"></i> 6,000 mi</li>
-               </ul>
-            </div>
-             <div class="car-content">
-              <div class="star">
-               <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star-o orange-color"></i>
-               </div>
-               <a href="#">Hyundai santa fe sport</a>
-               <div class="separator"></div>
-             </div>
-           </div>
-         </div>
+         {% endfor %}
+
         </div>  
        </div>
       </div>
