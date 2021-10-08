@@ -1,6 +1,8 @@
 from django.db import models
 import datetime
 
+from django.db.models.fields import BooleanField
+
 class Marque(models.Model):
     marque = models.CharField(max_length=300)
     def __str__(self):
@@ -80,6 +82,7 @@ class Voiture(models.Model):
     photo_moteur = models.ImageField(upload_to='images/', null=True, blank=True)
     photo_carte_grise = models.ImageField(upload_to='images/', null=True, blank=True)
     photo_assurance = models.ImageField(upload_to='images/', null=True, blank=True)
+    toit_ouvrant = models.BooleanField(default=True)
     photo_defaut1 = models.ImageField(upload_to='images/', null=True, blank=True)
     photo_defaut2 = models.ImageField(upload_to='images/', null=True, blank=True)
     photo_defaut3 = models.ImageField(upload_to='images/', null=True, blank=True)

@@ -278,11 +278,9 @@ Accueil
           <div class="selected-box">
            <select class="selectpicker">
               <option>Transmission</option>
-              <option>2dr Car</option>
-              <option>4dr Car</option>
-              <option>Convertible</option>
-              <option>Sedan</option>
-              <option>Sports Utility</option>
+              {% for transmission in transmission %}
+                <option value="{{ transmission }}">{{ transmission }}</option>
+               {% endfor %}
              </select>
             </div>
           </div>
@@ -315,9 +313,8 @@ Accueil
           <div class="col-lg-4">
            <div class="price-slide">
               <div class="price">
-               <label for="amount">Prix</label>
-                <input type="text" id="amount" class="amount" value="$50 - $300" />
-                <div id="slider-range"></div>
+               <label for="amount"></label>
+                
                 <a class="button" href="#">Recherche</a>
               </div>
              </div>
@@ -366,13 +363,6 @@ Accueil
                </ul>
             </div>
              <div class="car-content">
-              <div class="star">
-               <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star orange-color"></i>
-                <i class="fa fa-star-o orange-color"></i>
-               </div>
                <a href="{% url 'detail' voiture.id %}">{{ voiture.marque }} {{ voiture.modele }}</a>
                <div class="separator"></div>
              </div>

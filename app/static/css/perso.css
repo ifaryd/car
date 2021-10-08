@@ -1,11 +1,15 @@
 img.recent{
-height: 284px !important;
+height: 220px !important;
 }
 
 img.recents{
-height: 284px !important;
+height: 220px !important;
 }
 
 img.thum{
    height: 40px !important;
 }
+
+img.recenta{
+    height: 200px !important;
+    }
