@@ -13,3 +13,18 @@ img.thum{
 img.recenta{
     height: 200px !important;
     }
+
+ul.filtre{
+   height: 285px;
+   overflow-x: auto;
+}
+
+ul.trans{
+   height: auto;
+   overflow-x: auto;
+}
+
+div.seler{
+   height: 185px !important; 
+   overflow-y: auto !important;
+}

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from . models import *
+from django.db.models import Q
 
 def index(request):
     voiture=Voiture.objects.all().order_by('-id') [:4]
@@ -28,7 +29,6 @@ def detail(request, id):
     data = {
         'voiture':voiture,
         'recent':recent,
-
     }
     return render(request, 'detail.html', data)
 
@@ -36,8 +36,36 @@ def detail(request, id):
 def contact(request):
     return render(request, 'contact.html')
 
+
+# def result(request):
+#     search_query = request.GET.get('search', '')
+#     if  search_query:
+#         marq = Marque.objects.filter(Q(marque__icontains = search_query))
+#     else:
+#         marq = Voiture.objects.filter()
+
+#     data = {
+#         'marq':marq
+#     }
+#     return render(request, 'result.html', data)
+
 def achat(request):
     voiture=Voiture.objects.all().order_by('-id')
+    marque= Marque.objects.all().order_by('marque')
+    modele= Modele.objects.all().order_by('modele')
+    etat= Etat.objects.all().order_by('etat')
+    transmission= Transmission.objects.all().order_by('transmission')
+    annee= YEAR_CHOICES = []
+    for r in range(1980, (datetime.datetime.now().year+1)):
+        YEAR_CHOICES.append((r))
+
+
+    search_query = request.GET.get('search')
+    if  search_query:
+        voiture = Voiture.objects.filter(Q(marque__icontains = search_query))
+    else:
+        voiture=Voiture.objects.all().order_by('-id')
+
 
     paginator = Paginator(voiture, 15)
     try:
@@ -52,5 +80,10 @@ def achat(request):
     data = {
         'voiture':voiture,
         'paginator':paginator,
+        'marque':marque,
+        'modele':modele,
+        'etat':etat,
+        'transmission':transmission,
+        'annee':annee,
     }
     return render(request, 'achat.html', data)

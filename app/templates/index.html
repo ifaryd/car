@@ -242,7 +242,7 @@ Accueil
          <div class="row">
           <div class="col-md-4">
            <span>Sélectionnez la marque</span>
-            <div class="selected-box">
+            <div class="selected-box seler">
               <select class="selectpicker">
               <option>Marque </option>
               {% for marque in marque %}
@@ -253,7 +253,7 @@ Accueil
           </div>
           <div class="col-md-4">
           <span>Sélectionnez le modèle</span>
-            <div class="selected-box">
+            <div class="selected-box seler">
              <select class="selectpicker">
               <option>Modèle</option>
               {% for modele in modele %}
@@ -264,7 +264,7 @@ Accueil
           </div>
           <div class="col-md-4">
           <span>Sélectionnez l'année</span>
-           <div class="selected-box">
+           <div class="selected-box seler">
              <select class="selectpicker">
               <option>Année</option>
               {% for annee in annee %}
@@ -357,7 +357,7 @@ Accueil
              </div>
              <div class="car-list">
                <ul class="list-inline">
-                 <li><i class="fa fa-registered"></i> {{ voiture.annee }}</li>
+                 <li><i class="fa fa-calendar"></i> {{ voiture.annee }}</li>
                  <li><i class="fa fa-cog"></i> {{ voiture.transmission }} </li>
                  <li><i class="fa fa-dashboard"></i> {{ voiture.kilometrage }} km</li>
                </ul>
