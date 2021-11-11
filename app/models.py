@@ -75,7 +75,7 @@ class Voiture(models.Model):
     photo_arriere = models.ImageField(upload_to='images/', null=True, blank=True)
     photo_tableau = models.ImageField(upload_to='images/', null=True, blank=True)
     photo_option1 = models.ImageField(upload_to='images/', null=True, blank=True)
-    photo_option2 = models.ImageField(upload_to='images/', null=True, blank=True)
+    photo_option2 = models.ImageField(upload_to='images/',)
     photo_option3 = models.ImageField(upload_to='images/', null=True, blank=True)
     photo_option4 = models.ImageField(upload_to='images/', null=True, blank=True)    
     photo_option5 = models.ImageField(upload_to='images/', null=True, blank=True)    

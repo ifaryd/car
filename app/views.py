@@ -36,6 +36,12 @@ def detail(request, id):
 def contact(request):
     return render(request, 'contact.html')
 
+def location(request):
+    return render(request, 'location.html')
+
+def vente(request):
+    return render(request, 'vente.html')
+
 
 # def result(request):
 #     search_query = request.GET.get('search', '')
@@ -62,7 +68,7 @@ def achat(request):
 
     search_query = request.GET.get('search')
     if  search_query:
-        voiture = Voiture.objects.filter(Q(marque__icontains = search_query))
+        voiture = Voiture.objects.filter(Q(marque__marque__icontains = search_query) | Q(modele__modele__icontains = search_query))
     else:
         voiture=Voiture.objects.all().order_by('-id')
 

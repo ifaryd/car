@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Location
+{% endblock title %}
+
+
+{% block content %}
+<section class="inner-intro bg-1 bg-overlay-black-70">
+    <div class="container">
+       <div class="row text-center intro-title">
+             <div class="col-md-6 text-md-left d-inline-block">
+               <h1 class="text-white">Location</h1>
+             </div>
+             <div class="col-md-6 text-md-right float-right">
+               <ul class="page-breadcrumb">
+                  <li><a href="home"><i class="fa fa-home"></i> Accueil</a> <i class="fa fa-angle-double-right"></i></li>
+                  <li><span>Location</span> </li>
+               </ul>
+             </div>
+       </div>
+    </div>
+  </section>
+  
+  <!--=================================
+   inner-intro -->
+  
+  
+  <!--=================================
+   coming soon -->
+  
+  <section class="coming-soon page-section-ptb">
+    <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title">
+           <h2>Bientôt disponible </h2>
+           <div class="separator"></div>
+        </div>
+      </div>
+     </div>
+      <div class="row">
+       <div class="col-md-12">
+          <div class="countdown">
+            <p>Nous travaillons à mettre en place un service de qualité à la hauteur de vos attentes. Restez à l'écoute!</p>
+            </div>
+         </div>
+       </div>
+     </div>
+  
+     <div class="coming-soon-search">
+       <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <img class="img-fluid center-block" src="{% static 'images/car/19.jpg' %}" alt="">
+          </div>
+        </div>
+        
+      </div>
+     </div>
+  </section>
+  
+
+
+
+{% endblock content %}
+
+
