@@ -1,6 +1,6 @@
 from django.db import models
 import datetime
-
+from multiselectfield import MultiSelectField
 from django.db.models.fields import BooleanField
 
 class Marque(models.Model):
@@ -52,6 +52,13 @@ class Lieu(models.Model):
     
 class Voiture(models.Model):
     id = models.BigAutoField(primary_key=True,)
+
+    MY_OP = ((1, 'Ecran de bord'),
+              (2, 'Camera de recule'),
+              (3, 'Demarrage start/Stop'),
+              (4, 'Toit panoramique'),
+              (5, 'Abs'))
+
     
     YEAR_CHOICES = []
     for r in range(1980, (datetime.datetime.now().year+1)):
@@ -69,6 +76,7 @@ class Voiture(models.Model):
     annee = models.IntegerField(choices=YEAR_CHOICES)
     prix = models.CharField(max_length=300)
     kilometrage = models.IntegerField()
+    opt = MultiSelectField(choices=MY_OP)
     photo_face = models.ImageField(upload_to='images/', null=True, blank=True)
     photo_longueur1 = models.ImageField(upload_to='images/', null=True, blank=True)
     photo_longueur2 = models.ImageField(upload_to='images/', null=True, blank=True)

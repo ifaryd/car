@@ -48,14 +48,13 @@ Achat
            <ul class="list-group">
              
 
-
                 <li class="list-group-item">
                   <a href="#">Marque</a>
                   <ul class="filtre">
                     {% for marque in marque %}
                     <li><span class="checkbox">
                     <label>
-                      <input type="checkbox"> {{ marque }}
+                      <input type="checkbox" value="{{ marque }}">{{ marque }}
                       </label>
                     </span></li>
                     {% endfor %}
@@ -209,6 +208,20 @@ Achat
   
   <!--=================================
   product-listing  -->
+
+<script>
+      $("#filters :checkbox").click(function() {
+
+var re = new RegExp($("#filters :checkbox:checked").map(function() {
+                       return this.value;
+                    }).get().join("|") );
+$("div").each(function() {
+   var $this = $(this);
+   $this[re.source!="" && re.test($this.attr("class")) ? "show" : "hide"]();
+});
+});
+
+</script>
 
 
 {% endblock content %}
