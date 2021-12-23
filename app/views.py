@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from . models import *
 from django.db.models import Q
+from django.http import HttpResponse, JsonResponse
+
+
 
 def index(request):
     voiture=Voiture.objects.all().order_by('-id') [:4]
@@ -93,3 +96,34 @@ def achat(request):
         'annee':annee,
     }
     return render(request, 'achat.html', data)
+
+
+
+
+def search(request):
+    data = list()
+    if request.method == "POST":
+        datas = request.POST
+        datas._mutable = True
+        
+        voitures = Voiture.objects.filter()
+            
+        if 'marque' in datas:
+            voitures = voitures.filter(marque__marque__in = datas.getlist("marque"))
+            
+        if 'etat' in datas:
+            voitures = voitures.filter(etat__etat__in = datas.getlist("etat"))
+            
+        if 'transmission' in datas:
+            voitures = voitures.filter(transmission__transmission__in = datas.getlist("transmission"))  
+            
+        if 'annee' in datas:
+            voitures = voitures.filter(annee__in = datas.getlist("annee")) 
+            
+        if datas["search"] != "":
+            voitures = voitures.filter(Q(marque__marque__icontains = datas["search"]) | Q(modele__modele__icontains = datas["search"])) 
+            
+        data = voitures.values_list('id', flat=True)
+        print("-------------------------------", data)
+
+    return HttpResponse(data)

@@ -25,7 +25,7 @@ SECRET_KEY = 'u))hlz2ee6p#he!k$ne1^#fjt+bqlqln-w)!softar@&__v%)k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'ugly-mayfly-68.loca.lt']
+ALLOWED_HOSTS = ['*', '127.0.0.1', 'ugly-mayfly-68.loca.lt']
 
 
 # Application definition

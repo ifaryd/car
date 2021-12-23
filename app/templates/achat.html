@@ -45,16 +45,17 @@ Achat
                </ul>
          </div>
          <div class="clearfix">
+          <form method="POST" id="search-form" >
+            {% csrf_token %}
            <ul class="list-group">
              
-
                 <li class="list-group-item">
                   <a href="#">Marque</a>
                   <ul class="filtre">
                     {% for marque in marque %}
                     <li><span class="checkbox">
                     <label>
-                      <input type="checkbox" value="{{ marque }}">{{ marque }}
+                      <input type="checkbox" name="marque" value="{{ marque }}">{{ marque }}
                       </label>
                     </span></li>
                     {% endfor %}
@@ -67,7 +68,7 @@ Achat
                     {% for annee in annee %}
                     <li><span class="checkbox">
                     <label>
-                      <input type="checkbox"> {{ annee }}
+                      <input type="checkbox" name="annee" value="{{ annee }}"> {{ annee }}
                       </label>
                     </span></li>
                     {% endfor %}
@@ -81,7 +82,7 @@ Achat
                     {% for etat in etat %}
                     <li><span class="checkbox">
                     <label>
-                      <input type="checkbox"> {{ etat }}
+                      <input type="checkbox" name="etat" value="{{ etat }}"> {{ etat }}
                       </label>
                     </span></li>
                     {% endfor %}
@@ -95,7 +96,7 @@ Achat
                     {% for transmission in transmission %}
                     <li><span class="checkbox">
                     <label>
-                      <input type="checkbox"> {{ transmission }}
+                      <input type="checkbox" name="transmission" value="{{ transmission }}"> {{ transmission }}
                       </label>
                     </span></li>
                     {% endfor %}
@@ -126,10 +127,9 @@ Achat
              <div class="price-search">
 
 
-              <form action="{% url 'achat' %}">
                 <div class="search">
                 <i class="fa fa-search"></i>
-               <input type="search" name="search" class="form-control placeholder" placeholder="Recherche....">
+               <input type="text" name="search" class="form-control">
                <button class="button red" type="submit">rechercher</button>
               </div>
               </form>
@@ -154,7 +154,7 @@ Achat
           <div class="row">
 
             {% for voiture in voiture %}
-            <div class="col-lg-4">
+            <div class="col-lg-4 voiture" id="{{voiture.id}}">
               <div class="car-item gray-bg text-center">
                <div class="car-image">
                  <img class="img-fluid recenta" src="{{voiture.photo_face.url}}" alt="">
@@ -209,19 +209,14 @@ Achat
   <!--=================================
   product-listing  -->
 
-<script>
-      $("#filters :checkbox").click(function() {
-
-var re = new RegExp($("#filters :checkbox:checked").map(function() {
-                       return this.value;
-                    }).get().join("|") );
-$("div").each(function() {
-   var $this = $(this);
-   $this[re.source!="" && re.test($this.attr("class")) ? "show" : "hide"]();
-});
-});
-
-</script>
-
 
 {% endblock content %}
+
+
+
+{% block script %}
+
+<script>
+  {% include "./achat.js" %}
+</script>
+ {% endblock script %}

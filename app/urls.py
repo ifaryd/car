@@ -11,4 +11,5 @@ urlpatterns = [
     path('vente', views.vente, name='vente'),
     #path('result', views.result, name='result'),
     path('detail/<int:id>', views.detail, name='detail'),
+    path('search', views.search, name='search'),
 ]

@@ -99,6 +99,6 @@ class Voiture(models.Model):
     description = models.TextField()
     date_ajout = models.DateField()
     def __str__(self):
-        return str(self.marque)+ " " + str(self.modele) + " " + str(self.date_ajout)
+        return str(self.marque)+ " " + str(self.modele) + " " + str(self.transmission)
 
 
