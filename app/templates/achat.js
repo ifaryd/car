@@ -15,15 +15,23 @@ $(function () {
     $("#search-form").submit(function () {
         var url = "/search";
         var formdata = new FormData($(this)[0]);
-        $.post({ url: url, data: formdata, contentType: false, processData: false }, function (data) {
+        $.post({ url: url, data: formdata, contentType: false, processData: false }, function (res) {
+            let lots = res["data"]
             $(".voiture").show(2)
             $(".voiture").each(function (e, datas) {
+                test = false
                 id = $(this).attr("id")
-                if(!data.includes(id)){
+                for (let i of lots) {
+                    if (id == i) {
+                        test = true
+                    }
+                }
+                if (!test) {
+                    console.log("le id ", id)
                     $(this).hide(200)
                 }
             })
-        })
+        }, "json")
         return false;
     })
 

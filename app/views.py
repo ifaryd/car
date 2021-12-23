@@ -101,7 +101,7 @@ def achat(request):
 
 
 def search(request):
-    data = list()
+    data = []
     if request.method == "POST":
         datas = request.POST
         datas._mutable = True
@@ -123,7 +123,7 @@ def search(request):
         if datas["search"] != "":
             voitures = voitures.filter(Q(marque__marque__icontains = datas["search"]) | Q(modele__modele__icontains = datas["search"])) 
             
-        data = voitures.values_list('id', flat=True)
+        data = [x for x in voitures.values_list('id', flat=True)]
         print("-------------------------------", data)
 
-    return HttpResponse(data)
+    return JsonResponse({"data": data})
