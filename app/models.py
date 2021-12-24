@@ -57,7 +57,12 @@ class Voiture(models.Model):
               (2, 'Camera de recule'),
               (3, 'Demarrage start/Stop'),
               (4, 'Toit panoramique'),
-              (5, 'Abs'))
+              (5, 'Abs'),
+              (6, 'Capteur avant et arrière'),
+              (7, 'siège ventilé'),
+              (8, 'siège climatisé'),
+              
+            )
 
     
     YEAR_CHOICES = []
@@ -77,7 +82,6 @@ class Voiture(models.Model):
     prix               = models.CharField(max_length=300)
     kilometrage        = models.IntegerField()
     opt                = MultiSelectField(choices=MY_OP)
-    toit_ouvrant       = models.BooleanField(default=True)
     photo_face         = models.ImageField(upload_to='images/', default="images/default.png", null=True, blank=True)
     photo_longueur1    = models.ImageField(upload_to='images/', default="images/default.png", null=True, blank=True)
     photo_longueur2    = models.ImageField(upload_to='images/', default="images/default.png", null=True, blank=True)
@@ -86,16 +90,9 @@ class Voiture(models.Model):
     photo_option1      = models.ImageField(upload_to='images/', default="images/default.png", null=True, blank=True)
     photo_option2      = models.ImageField(upload_to='images/', default="images/default.png", null=True, blank=True)
     photo_option3      = models.ImageField(upload_to='images/', default="images/default.png", null=True, blank=True)
-    photo_option4      = models.ImageField(upload_to='images/', default="images/default.png", null=True, blank=True)    
-    photo_option5      = models.ImageField(upload_to='images/', default="images/default.png", null=True, blank=True)    
     photo_moteur       = models.ImageField(upload_to='images/', default="images/default.png", null=True, blank=True)
     photo_carte_grise  = models.ImageField(upload_to='images/', default="images/default.png", null=True, blank=True)
     photo_assurance    = models.ImageField(upload_to='images/', default="images/default.png", null=True, blank=True)
-    photo_defaut1      = models.ImageField(upload_to='images/', default="images/default.png", null=True, blank=True)
-    photo_defaut2      = models.ImageField(upload_to='images/', default="images/default.png", null=True, blank=True)
-    photo_defaut3      = models.ImageField(upload_to='images/', default="images/default.png", null=True, blank=True)
-    photo_defaut4      = models.ImageField(upload_to='images/', default="images/default.png", null=True, blank=True)
-    photo_defaut5      = models.ImageField(upload_to='images/', default="images/default.png", null=True, blank=True)
     description        = models.TextField()
     date_ajout         = models.DateField()
     def __str__(self):

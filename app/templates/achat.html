@@ -126,18 +126,21 @@ Achat
            <div class="col-lg-8">
              <div class="price-search">
 
-
+              <form>
                 <div class="search">
                 <i class="fa fa-search"></i>
                <input type="text" name="search" class="form-control">
-               <button class="button red" type="submit">rechercher</button>
+               
+      
               </div>
-              </form>
               
               
                
              </div>
            </div>
+           <div class="col-lg-4"><button style="align-items: center;" class="button " type="submit">rechercher</button></div>
+          </form>
+
           </div> 
           <div class="row sorting-options">
             <div class="col-lg-5">
@@ -216,7 +219,4 @@ Achat
 
 {% block script %}
 
-<script>
-  {% include "./achat.js" %}
-</script>
  {% endblock script %}
