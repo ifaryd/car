@@ -28,3 +28,7 @@ div.seler{
    height: 185px !important; 
    overflow-y: auto !important;
 }
+
+div.plus{
+   padding-top: 50px !important;
+}

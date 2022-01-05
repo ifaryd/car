@@ -212,122 +212,8 @@ Accueil
        </div>
       </div>
      </section>
-     
-    <!--=================================
-     content-box -->
-    
-    
-     <!--=================================
-     content-box -->
-    
-    <!--=================================
-     content-box -->
-    
-     <!--=================================
-     form -->
-    
-    <section class="search-block find-car bg-3 bg-overlay-black-70 page-section-ptb">
-      <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="section-title text-left">
-             <h2 class="text-white">Trouvez la voiture de vos rêves  </h2>
-             <div class="separator"></div>
-          </div>
-        </div>
-       </div>
-    
-       <div class="row">
-        <div class="col-lg-8">
-         <div class="row">
-          <div class="col-md-4">
-           <span>Sélectionnez la marque</span>
-            <div class="selected-box seler">
-              <select class="selectpicker">
-              <option>Marque </option>
-              {% for marque in marque %}
-                <option value="{{ marque }}">{{ marque }}</option>
-              {% endfor %}
-             </select>
-            </div>
-          </div>
-          <div class="col-md-4">
-          <span>Sélectionnez le modèle</span>
-            <div class="selected-box seler">
-             <select class="selectpicker">
-              <option>Modèle</option>
-              {% for modele in modele %}
-                <option value="{{ modele }}">{{ modele }}</option>
-              {% endfor %}
-             </select>
-           </div>
-          </div>
-          <div class="col-md-4">
-          <span>Sélectionnez l'année</span>
-           <div class="selected-box seler">
-             <select class="selectpicker">
-              <option>Année</option>
-              {% for annee in annee %}
-                <option value="{{ annee }}">{{ annee }}</option>
-               {% endfor %}
-             </select>
-            </div>
-          </div>
-          <div class="col-md-4">
-          <span>Sélectionnez la transmission</span>
-          <div class="selected-box">
-           <select class="selectpicker">
-              <option>Transmission</option>
-              {% for transmission in transmission %}
-                <option value="{{ transmission }}">{{ transmission }}</option>
-               {% endfor %}
-             </select>
-            </div>
-          </div>
-          <div class="col-md-4">
-         <span>Sélectionnez l'état</span>
-           <div class="selected-box">
-             <select class="selectpicker">
-              <option>Etat</option>
-              {% for etat in etat %}
-                <option value="{{ etat }}">{{ etat }}</option>
-               {% endfor %}
-             </select>
-           </div>
-          </div>
-          <div class="col-md-4">
-         <span>Sélectionnez le kilométrage</span>
-           <div class="selected-box">
-             <select class="selectpicker">
-              <option>Kilométrage</option>
-              <option>102</option>
-              <option>13</option>
-              <option>1540</option>
-              <option>15</option>
-              <option>20</option>
-             </select>
-           </div>
-          </div>
-          </div>
-          </div>
-          <div class="col-lg-4">
-           <div class="price-slide">
-              <div class="price">
-               <label for="amount"></label>
-                
-                <a class="button" href="#">Recherche</a>
-              </div>
-             </div>
-            </div>
-          </div>
-        </div>
-      </section> 
-    
-     <!--=================================
-     form -->
-    
-     <!--=================================
-     feature-car -->
+
+
     
     <section class="feature-car new-arrival white-bg page-section-ptb">
       <div class="container">
@@ -370,11 +256,31 @@ Accueil
          </div>
          {% endfor %}
 
+          
+
         </div>  
+       
+       </div>
+       <div class="col-md-12 text-center plus">
+        
+       
+       <a href="achat"><button class="button red">Voir +</button></a> 
+            
+  
+          
+          
+         </div>
+
+       
+       <div>
+       
        </div>
       </div>
-     </div>
+      
+     </div> 
     </section>   
+
+    
     
     <!--=================================
      feature-car -->
