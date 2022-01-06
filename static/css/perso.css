@@ -1,0 +1,34 @@
+img.recent{
+height: 220px !important;
+}
+
+img.recents{
+height: 220px !important;
+}
+
+img.thum{
+   height: 40px !important;
+}
+
+img.recenta{
+    height: 200px !important;
+    }
+
+ul.filtre{
+   height: 285px;
+   overflow-x: auto;
+}
+
+ul.trans{
+   height: auto;
+   overflow-x: auto;
+}
+
+div.seler{
+   height: 185px !important; 
+   overflow-y: auto !important;
+}
+
+div.plus{
+   padding-top: 50px !important;
+}
