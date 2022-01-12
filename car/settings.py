@@ -26,7 +26,7 @@ SECRET_KEY = 'u))hlz2ee6p#he!k$ne1^#fjt+bqlqln-w)!softar@&__v%)k'
 DEBUG = False
 DEBUG404 = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'lesvraibolide.ci', 'www.lesvraibolide.ci','']
+ALLOWED_HOSTS = ['3.135.187.247','127.0.0.1', 'lesvraibolide.ci', 'www.lesvraibolide.ci']
 
 
 # Application definition
