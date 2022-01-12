@@ -3,6 +3,7 @@ from django.core.paginator import Paginator
 from . models import *
 from django.db.models import Q
 from django.http import HttpResponse, JsonResponse
+from .forms import ContactForm
 
 
 
@@ -37,7 +38,14 @@ def detail(request, id):
 
 
 def contact(request):
-    return render(request, 'contact.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'contact.html')
+    form= ContactForm
+    data= {'form': form}
+    return render(request, 'contact.html', data)
 
 def location(request):
     return render(request, 'location.html')
@@ -110,6 +118,9 @@ def search(request):
             
         if 'marque' in datas:
             voitures = voitures.filter(marque__marque__in = datas.getlist("marque"))
+
+        if 'modele' in datas:
+            voitures = voitures.filter(modele__modele__in = datas.getlist("modele"))
             
         if 'etat' in datas:
             voitures = voitures.filter(etat__etat__in = datas.getlist("etat"))

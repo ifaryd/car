@@ -422,7 +422,7 @@ h2 { font-size: 32px; }
 
 /*car-directory*/
 .car-directory-banner .search-tab .car-total { float: left !important; }
-.car-item .car-image img { width: 100%; }
+.car-item .car-image img { width: auto !important; }
 
 }
 

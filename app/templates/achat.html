@@ -63,6 +63,19 @@ Achat
                 </li>
 
                 <li class="list-group-item">
+                  <a href="#">Modèle</a>
+                  <ul class="filtre">
+                    {% for modele in modele %}
+                    <li><span class="checkbox">
+                    <label>
+                      <input type="checkbox" name="modele" value="{{ modele }}">{{ modele }}
+                      </label>
+                    </span></li>
+                    {% endfor %}
+                  </ul>
+                </li>
+
+                <li class="list-group-item">
                   <a href="#">Année</a>
                   <ul class="filtre">
                     {% for annee in annee %}

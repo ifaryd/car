@@ -1,7 +1,9 @@
 from django.db import models
 import datetime
+
+from django.db.models.base import Model
 from multiselectfield import MultiSelectField
-from django.db.models.fields import BooleanField
+from django.db.models.fields import BooleanField, TextField
 
 class Marque(models.Model):
     marque = models.CharField(max_length=300)
@@ -99,3 +101,13 @@ class Voiture(models.Model):
     def __str__(self):
         return str(self.marque)+ " " + str(self.modele) + " " + str(self.date_ajout)
 
+
+
+class Contact(models.Model):
+    nom= models.CharField(max_length=225)
+    email= models.EmailField()
+    telephone= models.CharField(max_length=225)
+    message=models.TextField()
+
+    def __str__(self):
+        return self.email

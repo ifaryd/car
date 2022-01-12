@@ -32,3 +32,11 @@ div.seler{
 div.plus{
    padding-top: 50px !important;
 }
+
+@media (max-width: 767px){
+   img.bien {
+      width: auto !important;
+  }
+}
+
+
